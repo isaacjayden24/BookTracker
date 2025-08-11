@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" prefWidth="500" prefHeight="400">
+
+    <!-- Top Toolbar -->
+    <top>
+        <HBox spacing="5">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <children>
+                <Button text="Add" fx:id="btnAdd"/>
+                <Button text="Edit" fx:id="btnEdit"/>
+                <Button text="Delete" fx:id="btnDelete"/>
+                <Button text="Backup" fx:id="btnBackup"/>
+                <Button text="Restore" fx:id="btnRestore"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Main Table -->
+    <center>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn text="Title" fx:id="titleColumn" prefWidth="200"/>
+                <TableColumn text="Author" fx:id="authorColumn" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
+
+
+
