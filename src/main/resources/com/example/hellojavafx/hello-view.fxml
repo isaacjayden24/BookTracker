@@ -4,7 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" prefWidth="500" prefHeight="400">
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.hellojavafx.BookTrackerController"
+            prefWidth="500" prefHeight="400">
 
     <!-- Top Toolbar -->
     <top>
@@ -13,7 +15,7 @@
                 <Insets top="10" right="10" bottom="10" left="10"/>
             </padding>
             <children>
-                <Button text="Add" fx:id="btnAdd"/>
+                <Button text="Add" fx:id="btnAdd" onAction="#onAddClicked"/>
                 <Button text="Edit" fx:id="btnEdit"/>
                 <Button text="Delete" fx:id="btnDelete"/>
                 <Button text="Backup" fx:id="btnBackup"/>

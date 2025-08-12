@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+    id 'org.jetbrains.kotlin.jvm' version '1.9.22'   // ← Fixed
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
 }
@@ -20,8 +20,15 @@ ext {
 sourceCompatibility = '19'
 targetCompatibility = '19'
 
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = '19'  // ← Fixed
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = '19'
+    }
 }
 
 application {
@@ -29,19 +36,24 @@ application {
     mainClass = 'com.example.hellojavafx.HelloApplication'
 }
 
-[compileKotlin, compileTestKotlin].forEach {
-    it.kotlinOptions {
-        jvmTarget = '11'
-    }
-}
-
 javafx {
-    version = '19-ea+7'
+    version = '19.0.2.1'  // Use stable instead of EA if possible
     modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
 
+
+    // SQLite
+    implementation("org.xerial:sqlite-jdbc:3.45.3.0")
+
+    // Exposed ORM
+    implementation("org.jetbrains.exposed:exposed-core:0.44.1")
+    implementation("org.jetbrains.exposed:exposed-dao:0.44.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.44.1")
+
+    // Testing
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

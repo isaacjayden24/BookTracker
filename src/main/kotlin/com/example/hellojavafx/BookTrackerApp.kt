@@ -6,9 +6,13 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
+import com.example.hellojavafx.db.DatabaseFactory
 
 class BookTrackerApp : Application() {
+
+
     override fun start(stage: Stage) {
+        DatabaseFactory.init()  // set up the DB once
         val fxml = javaClass.getResource("hello-view.fxml")
             ?: throw IllegalStateException("FXML file not found: hello-view.fxml")
 
