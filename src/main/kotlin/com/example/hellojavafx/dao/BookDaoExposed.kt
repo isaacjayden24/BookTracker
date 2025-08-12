@@ -7,6 +7,7 @@ import com.example.hellojavafx.db.Books
 import com.example.hellojavafx.model.Book
 import com.example.hellojavafx.db.DatabaseFactory
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class BookDaoExposed {
@@ -36,9 +37,9 @@ class BookDaoExposed {
         }
     }
 
-    /*fun delete(id: Int) { //TODO:This code should be reviewed and the imports also
-        transaction {
-            Books.deleteWhere { Books.id eq book.id }
-        }
-    }*/
+    fun delete(id: Int) = transaction {
+        Books.deleteWhere { Books.id eq id }
+    }
+
+
 }

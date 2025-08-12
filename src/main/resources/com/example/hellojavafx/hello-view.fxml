@@ -16,10 +16,10 @@
             </padding>
             <children>
                 <Button text="Add" fx:id="btnAdd" onAction="#onAddClicked"/>
-                <Button text="Edit" fx:id="btnEdit"/>
-                <Button text="Delete" fx:id="btnDelete"/>
-                <Button text="Backup" fx:id="btnBackup"/>
-                <Button text="Restore" fx:id="btnRestore"/>
+                <Button text="Edit" fx:id="btnEdit" onAction="#onEditClicked"/>
+                <Button text="Delete" fx:id="btnDelete" onAction="#onDeleteClicked"/>
+                <Button text="Backup" fx:id="btnBackup" onAction="#onBackupClicked"/>
+                <Button text="Restore" fx:id="btnRestore" onAction="#onRestoreClicked"/>
             </children>
         </HBox>
     </top>
